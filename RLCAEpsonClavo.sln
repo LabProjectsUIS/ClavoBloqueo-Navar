@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLCAEpsonClavo", "RLCAEpsonClavo.csproj", "{8FB02A02-AD86-7370-0962-AFB9B00DD2FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLCAEpsonClavo.Editor", "RLCAEpsonClavo.Editor.csproj", "{168C875E-C367-AD09-78D9-771F9F4800C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FB02A02-AD86-7370-0962-AFB9B00DD2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB02A02-AD86-7370-0962-AFB9B00DD2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB02A02-AD86-7370-0962-AFB9B00DD2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB02A02-AD86-7370-0962-AFB9B00DD2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168C875E-C367-AD09-78D9-771F9F4800C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168C875E-C367-AD09-78D9-771F9F4800C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168C875E-C367-AD09-78D9-771F9F4800C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168C875E-C367-AD09-78D9-771F9F4800C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

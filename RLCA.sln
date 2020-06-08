@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{45C52F46-E027-6211-D70D-7C5C892C7501}") = "RLCA", "Assembly-CSharp.csproj", "{B5236416-3A17-AEFF-3B00-85671C8D0C99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5236416-3A17-AEFF-3B00-85671C8D0C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5236416-3A17-AEFF-3B00-85671C8D0C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5236416-3A17-AEFF-3B00-85671C8D0C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5236416-3A17-AEFF-3B00-85671C8D0C99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

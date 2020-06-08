@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClavoBloqueoPantalla", "ClavoBloqueoPantalla.csproj", "{D38E0FAE-6918-F9E1-26B8-7663480279F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClavoBloqueoPantalla.Editor", "ClavoBloqueoPantalla.Editor.csproj", "{AA6F3A7B-FA83-0910-C1E3-6E840A418EAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D38E0FAE-6918-F9E1-26B8-7663480279F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38E0FAE-6918-F9E1-26B8-7663480279F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38E0FAE-6918-F9E1-26B8-7663480279F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38E0FAE-6918-F9E1-26B8-7663480279F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6F3A7B-FA83-0910-C1E3-6E840A418EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6F3A7B-FA83-0910-C1E3-6E840A418EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6F3A7B-FA83-0910-C1E3-6E840A418EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6F3A7B-FA83-0910-C1E3-6E840A418EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

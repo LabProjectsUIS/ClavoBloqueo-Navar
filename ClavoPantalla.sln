@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClavoPantalla", "ClavoPantalla.csproj", "{77CB5950-98EF-BE96-44B2-E2DD7654FDE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClavoPantalla.Editor", "ClavoPantalla.Editor.csproj", "{4B03A070-B3F9-073F-63A1-B9EC9A169FC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77CB5950-98EF-BE96-44B2-E2DD7654FDE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CB5950-98EF-BE96-44B2-E2DD7654FDE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CB5950-98EF-BE96-44B2-E2DD7654FDE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CB5950-98EF-BE96-44B2-E2DD7654FDE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B03A070-B3F9-073F-63A1-B9EC9A169FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B03A070-B3F9-073F-63A1-B9EC9A169FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B03A070-B3F9-073F-63A1-B9EC9A169FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B03A070-B3F9-073F-63A1-B9EC9A169FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
