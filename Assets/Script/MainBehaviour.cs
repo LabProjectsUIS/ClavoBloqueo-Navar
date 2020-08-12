@@ -107,7 +107,15 @@ public class MainBehaviour : MonoBehaviour {
     GameObject Indicador3;
     GameObject Indicador4;
 
-    public GameObject spriteAP;
+	GameObject O1L1;
+	GameObject O1L2;
+	GameObject O2L1;
+	GameObject O2L2;
+	GameObject O3L1;
+	GameObject O3L2;
+	GameObject O4L1;
+	GameObject O4L2;
+	public GameObject spriteAP;
 
     Camera CameraPiel22;
     Camera CameraPiel2;
@@ -161,7 +169,16 @@ public class MainBehaviour : MonoBehaviour {
         //FemurRigid = GameObject.Find("Femur");
         //Guia = GameObject.Find("guia_model");
         GuiaRigid = GameObject.Find("Guia");
-        Punto1A = GameObject.Find("punto1A");
+
+		O1L1 = GameObject.Find("O1L1");
+		O1L2 = GameObject.Find("O1L2");
+		O2L1 = GameObject.Find("O2L1");
+		O2L2 = GameObject.Find("O2L2");
+		O3L1 = GameObject.Find("O3L1");
+		O3L2 = GameObject.Find("O3L2");
+		O4L1 = GameObject.Find("O4L1");
+		O4L2 = GameObject.Find("O4L2");
+		Punto1A = GameObject.Find("punto1A");
         Punto1B = GameObject.Find("punto1B");
         Punto1AS = GameObject.Find("punto1AS");
         Punto1BS = GameObject.Find("punto1BS");
@@ -233,22 +250,24 @@ public class MainBehaviour : MonoBehaviour {
     void Start()
     {
         punto1Select();
-        //4 points coordinates: tibiaA, tibiaB, femurA, femurB
-        posicionPunto1A = loaderScript.punto1A;
-        posicionPunto1B = loaderScript.punto1B;
-        posicionPunto2A = loaderScript.punto2A;
-        posicionPunto2B = loaderScript.punto2B;
-        posicionPunto3A = loaderScript.punto3A;
-        posicionPunto3B = loaderScript.punto3B;
-        posicionPunto4A = loaderScript.punto4A;
-        posicionPunto4B = loaderScript.punto4B;
+		//4 points coordinates: tibiaA, tibiaB, femurA, femurB
+		posicionPunto1A = loaderScript.punto1A;
+		posicionPunto1B = loaderScript.punto1B;
+		posicionPunto2A = loaderScript.punto2A;
+		posicionPunto2B = loaderScript.punto2B;
+		posicionPunto3A = loaderScript.punto3A;
+		posicionPunto3B = loaderScript.punto3B;
+		posicionPunto4A = loaderScript.punto4A;
+		posicionPunto4B = loaderScript.punto4B;
 
+		//Punto1A.transform. = O1L1.transform;
+		Debug.Log(Punto1A.transform.position);
 
-        //setting coordinates to spheres
+        //setting coordinates to spheres mm to m
 
         Punto1A.transform.localPosition = posicionPunto1A / 1000;
-        Punto1B.transform.localPosition = posicionPunto1B / 1000;
-        Punto1AS.transform.localPosition = posicionPunto1A / 1000;
+		Punto1B.transform.localPosition = posicionPunto1B / 1000;
+		Punto1AS.transform.localPosition = posicionPunto1A / 1000;
         Punto1BS.transform.localPosition = posicionPunto1B / 1000;
         Punto2A.transform.localPosition = posicionPunto2A / 1000;
         Punto2B.transform.localPosition = posicionPunto2B / 1000;
@@ -270,11 +289,11 @@ public class MainBehaviour : MonoBehaviour {
         punto3BMirror.transform.position = Punto3B.transform.position;
         punto4AMirror.transform.position = Punto4A.transform.position;
         punto4BMirror.transform.position = Punto4B.transform.position;
+		
 
 
 
-
-        punto1Line.SetPosition(0, Punto1A.transform.localPosition);
+		punto1Line.SetPosition(0, Punto1A.transform.localPosition);
         punto1Line.SetPosition(1, Punto1B.transform.localPosition);
         punto1Line.SetWidth(0.0035f, 0.0035f);
         punto2Line.SetPosition(0, Punto2A.transform.localPosition);
@@ -526,8 +545,8 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(false);
         Indicador3.SetActive(false);
         Indicador4.SetActive(false);
-        camP1.nearClipPlane = 0.01f;
-        camH.nearClipPlane = 0.13f;
+        camP1.nearClipPlane = 0.7f;
+        camH.nearClipPlane = 0.53f;
 
       
         m = true;
@@ -547,8 +566,8 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(true);
         Indicador3.SetActive(false);
         Indicador4.SetActive(false);
-        camP1.nearClipPlane = 0.42f;
-        camH.nearClipPlane = 0.22f;
+        camP1.nearClipPlane = 0.58f;
+        camH.nearClipPlane = 0.41f;
         //TransformExtensions.SetYPos(spriteAP.transform, -0.000000000000001f);
         m = true;
     }
@@ -566,8 +585,8 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(false);
         Indicador3.SetActive(true);
         Indicador4.SetActive(false);
-        camP1.nearClipPlane = 0.70f;
-        camH.nearClipPlane = 0.49f;
+        camP1.nearClipPlane = 0.45f;
+        camH.nearClipPlane = 0.393f;
         m = false;
     }
     public void punto4Select()
@@ -584,8 +603,8 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(false);
         Indicador3.SetActive(false);
         Indicador4.SetActive(true);
-        camP1.nearClipPlane = 0.762f;
-        camH.nearClipPlane = 0.55f;
+        camP1.nearClipPlane = 0.4599999999f;
+        camH.nearClipPlane = 0.29f;
         m = false;
     }
 
@@ -646,8 +665,8 @@ public class MainBehaviour : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 punto2Select();
-                CameraPiel22.gameObject.SetActive(false);
-                CameraPiel2.gameObject.SetActive(true);
+                CameraPiel22.gameObject.SetActive(true);
+                CameraPiel2.gameObject.SetActive(false);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
@@ -680,7 +699,7 @@ public class MainBehaviour : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 punto2Select();
-                CameraHueso22.gameObject.SetActive(false);
+                CameraHueso22.gameObject.SetActive(true);
                
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))

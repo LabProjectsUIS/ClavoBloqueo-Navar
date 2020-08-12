@@ -219,18 +219,18 @@ public class ColliderBehaviour : MonoBehaviour {
 
         //taladrado
         distanciabrocahueso = (Vector3.Distance(puntaBrocaPegada.transform.position, Hueso.transform.position));
-        //Debug.Log(distanciabrocahueso);
+       // Debug.Log(distanciabrocahueso+"dis broca hueso");
         if (isDrillingBone == true)
         {
            
                 //Debug.Log(isDrillingBone);
                 //Debug.Log(distanciabrocahueso);
                 HuesoPunta.transform.position = puntaBrocaPegada.transform.position;
-                distanciaBroca2Hueso = ((HuesoPunta.transform.localPosition.z +8)/14);
-                Debug.Log(distanciaBroca2Hueso + "distancia broca de hueso");
+                distanciaBroca2Hueso = (HuesoPunta.transform.localPosition.y +1);
+              // Debug.Log(distanciaBroca2Hueso + "distancia broca de hueso");
                 HuesoCol.gameObject.SetActive(true);
 
-                HuesoCol.text = (((int)((distanciaBroca2Hueso)*1000*0.04f)-1).ToString() + "mm");
+                HuesoCol.text = (((int)(distanciaBroca2Hueso*distanciabrocahueso*1000)).ToString() + "mm");
            
             //Debug.Log(HuesoCol.text);
         }

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaboBloqueoPantalla-Flex13Cam", "ClaboBloqueoPantalla-Flex13Cam.csproj", "{B94E361A-69C3-97DC-F6D7-46718B198BC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClaboBloqueoPantalla-Flex13Cam.Editor", "ClaboBloqueoPantalla-Flex13Cam.Editor.csproj", "{776C9DD3-C35B-359F-073E-4DB81AFA600F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B94E361A-69C3-97DC-F6D7-46718B198BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94E361A-69C3-97DC-F6D7-46718B198BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94E361A-69C3-97DC-F6D7-46718B198BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94E361A-69C3-97DC-F6D7-46718B198BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776C9DD3-C35B-359F-073E-4DB81AFA600F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776C9DD3-C35B-359F-073E-4DB81AFA600F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776C9DD3-C35B-359F-073E-4DB81AFA600F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776C9DD3-C35B-359F-073E-4DB81AFA600F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

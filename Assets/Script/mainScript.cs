@@ -10,83 +10,69 @@ public class mainScript : MonoBehaviour
     private Vector3 rotationAxis1;
     //private System.Random rnd = new System.Random();
 
-    [Range(0.0f, 1.0f)]
-    public float weight = 0.5f;
+    [Range(0.0f, 2.0f)]
+    public float weightGuia = 0.5f;
 
-    Vector3 old_forward3, old_right3;
-    bool firstFrame = true;
+	Vector3 old_forward3, old_right3; //Guia
+	Vector3 old_forward4, old_right4; //Clavo
+	bool firstFrame = true;
 
     void Start()
     {
         /*obj1 = GameObject.Find("original");*/
-        obj2 = GameObject.Find("Guia");
-        obj3 = GameObject.Find("Guia");
-		obj4 = GameObject.Find("Guia");
-		obj5 = GameObject.Find("Guia");
-		obj6 = GameObject.Find("Guia");
-		obj7 = GameObject.Find("Guia");
-		obj8 = GameObject.Find("Guia");
-		obj9 = GameObject.Find("Guia");
-		obj10 = GameObject.Find("Guia");
+        obj2 = GameObject.Find("Guia"); obj3 = GameObject.Find("Guia");
 	}
 
     void Update()
     {
         float currentTime = Time.deltaTime;
-        //Debug.Log(currentTime);
-        // Set the orientation of obj1
-        //
-        /*int i = (int)currentTime;
-        if (i % 2 == 1) 
-        { // During odd seconds ...
-            if (!rotatingObj1)
-            {
-                // We are initiating a new rotation, so we choose a random axis of rotation
-                rotatingObj1 = true;
-                rotationAxis1 = new Vector3(2 * rnd.Next() - 1, 2 * rnd.Next() - 1, 2 * rnd.Next() - 1).normalized;
-            }
-            else
-            { // ... we continue to rotate the object
-                obj1.transform.rotation *= Quaternion.AngleAxis(2/*degrees, rotationAxis1);
-            }
-        }
-        else rotatingObj1 = false;
-
-        // Set the orientation of obj2
-        //
-        obj2.transform.rotation = obj1.transform.rotation;
-        // Add a bit of noise to the orientation
-        Vector3 rotationAxis2 = new Vector3(2 * rnd.Next() - 1, 2 * rnd.Next() - 1, 2 * rnd.Next() - 1).normalized;
-        obj2.transform.rotation *= Quaternion.AngleAxis(10/*degrees, rotationAxis2);*/
-
-        // Set the orientation of obj3
-        //
-        /*Debug.Log("primera pos"+old_forward3.x+  old_forward3.y+  old_forward3.z);
-        Debug.Log("segunda pos" + old_right3.x + old_right3.y + old_right3.z);*/
-        
         if (firstFrame)
         {
             // initialization
             old_forward3 = obj2.transform.forward;
             old_right3 = obj2.transform.right;
-            firstFrame = false;
+			firstFrame = false;
             
         }
         else
         {
             // obj3's orientation is a weighted average of obj2's current orientation and obj3's old orientation
-            Vector3 new_forward3 = ((weight) * obj2.transform.forward + (1 - weight) * old_forward3).normalized;
-            Vector3 new_right3 = ((weight) * obj2.transform.right + (1 - weight) * old_right3).normalized;
-
+            Vector3 new_forward3 = ((weightGuia) * obj2.transform.forward + (1 - weightGuia) * old_forward3).normalized;
+            Vector3 new_right3 = ((weightGuia) * obj2.transform.right + (1 - weightGuia) * old_right3).normalized;
             // Use a cross-product to makes sure new_up3 is perpendicular to new_forward3.
             Vector3 new_up3 = Vector3.Cross(new_forward3, new_right3).normalized;
-
             obj3.transform.rotation = Quaternion.LookRotation(new_forward3, new_up3);
-
             old_forward3 = obj3.transform.forward;
-            old_right3 = obj3.transform.right;//
-        }
-       // Debug.Log("FPS: "+1.0/currentTime+"TIME: "+currentTime);
+            old_right3 = obj3.transform.right;
 
-    }
+		}
+		float count=0.05f;
+
+
+		if (Input.GetKeyDown(KeyCode.Keypad5)) //eje y
+		{
+			Vector3 positiony = obj4.transform.position;
+			positiony.y+=count;
+			obj4.transform.position = positiony;
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad2)) //eje -y
+		{
+			Vector3 positiony = obj4.transform.position;
+			positiony.y -= count;
+			obj4.transform.position = positiony;
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad1)) //eje x
+		{
+			Vector3 positiony = obj4.transform.position;
+			positiony.x += count;
+			obj4.transform.position = positiony;
+		}
+		if (Input.GetKeyDown(KeyCode.Keypad3)) //eje -x
+		{
+			Vector3 positiony = obj4.transform.position;
+			positiony.x -= count;
+			obj4.transform.position = positiony;
+		}
+
+	}
 }

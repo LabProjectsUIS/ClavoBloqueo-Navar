@@ -22,9 +22,14 @@ public class register : MonoBehaviour {
     Camera targetCamera;
     Camera CameraContador2;
 
-    GameObject flag;
+	GameObject Punto1C;
+	GameObject Punto2C;
+	GameObject Punto3C;
+	GameObject Clavo2;
+	GameObject flag;
     public bool man;
     GameObject Piel;
+	GameObject Fase1, Fase2;
     GameObject e1;
     GameObject e2;
     GameObject e3;
@@ -47,7 +52,17 @@ public class register : MonoBehaviour {
     GameObject guiaModel;
     GameObject sphereLarga;
     GameObject Hueso;
-    private Vector3 offset;
+	GameObject SphereCanula;
+	GameObject Cilindro;
+	GameObject clavoCurvo;
+	GameObject punto1;
+	GameObject punto2;
+	GameObject O1;
+	GameObject O2;
+	GameObject Punto1Centro, Punto2Centro;
+	GameObject Ind, Can, Canula, CanModel;
+	MeshRenderer RenderPierna;
+	private Vector3 offset;
     bool m;
     float tempDis;
     Vector3 niceRot;
@@ -55,7 +70,19 @@ public class register : MonoBehaviour {
     // Use this for initialization
     void Awake ()
     {
-        Hueso = GameObject.Find("Hueso");
+		Punto1Centro = GameObject.Find("Punto1Centro");
+		Punto2Centro = GameObject.Find("Punto2Centro");
+		Fase1 = GameObject.Find("Fase1");
+		Fase2 = GameObject.Find("Fase2");
+		O1 = GameObject.Find("O1");
+		O2 = GameObject.Find("O2");
+		Clavo2 = GameObject.Find("Clavo2");
+		Punto1C = GameObject.Find("Punto1C");
+		Punto2C = GameObject.Find("Punto2C");
+		Punto3C = GameObject.Find("Punto3C");
+		SphereCanula = GameObject.Find("SphereCanula");
+		Canula = GameObject.Find("Canula");
+		Hueso = GameObject.Find("Hueso");
         Piel = GameObject.Find("CONOHueco");
         flag = GameObject.Find("Flag");
         camH = GameObject.Find("CameraHueso").GetComponent<Camera>();
@@ -89,9 +116,17 @@ public class register : MonoBehaviour {
         tibia = GameObject.Find("clavoclean");
         tibiaM = GameObject.Find("clavomodel");
         tibiaR = GameObject.Find("Tibia");
-       
 
-    }
+		clavoCurvo = GameObject.Find("ClavoCurvo");
+		punto1 = GameObject.Find("Punto1");
+		punto2 = GameObject.Find("Punto2");
+
+		Ind = GameObject.Find("Ind");
+		Can = GameObject.Find("Can");
+		CanModel = GameObject.Find("CanModel");
+		RenderPierna = GameObject.Find("object_1").GetComponent<MeshRenderer>();
+
+	}
     private void Start()
     {
        // offset = camP1.transform.position - GameObject.Find("proyector1").GetComponent<Transform>().position;
@@ -103,6 +138,7 @@ public class register : MonoBehaviour {
         targetCamera.gameObject.SetActive(false);
         camC.gameObject.SetActive(true);
         CameraHueso22.gameObject.SetActive(false);
+		
         //CameraContador2.gameObject.SetActive(false);
         // camP2.gameObject.SetActive(true);
         //camD.transform.position = new Vector3(0.033f, 0.1861f, 0.98542f);
@@ -126,9 +162,11 @@ public class register : MonoBehaviour {
         registrar();
         Render();
         Cameras();
-       
-        camC.gameObject.SetActive(true);
-
+		camC.gameObject.SetActive(true);
+	
+		float dist = Vector3.Distance(Punto1Centro.transform.position, Punto2Centro.transform.position);
+		//Debug.Log("Verificacion distancia de puntos: " + dist);
+		int nnn = 0;
         //camP1.transform.position = GameObject.Find("proyector1").GetComponent<Transform>().position;
         //camD.transform.LookAt(GameObject.Find("proyector1").GetComponent<Transform>().position);
 
@@ -143,11 +181,13 @@ public class register : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Hueso.gameObject.SetActive(false);
-            Piel.SetActive(true);
+			//Piel.SetActive(true);
+			Fase1.SetActive(true);
+			Fase2.SetActive(false);
           flag.SetActive(true);
-            //Proximales on
-            
-            camH.gameObject.SetActive(false);
+			//Proximales on
+			RenderPierna.enabled = true;
+			camH.gameObject.SetActive(false);
             camH2.gameObject.SetActive(false);
            
             camP1.gameObject.SetActive(true);
@@ -161,15 +201,19 @@ public class register : MonoBehaviour {
         {
             //Distales on
             Hueso.gameObject.SetActive(true);
-            Piel.SetActive(false);
+			
+			//Piel.SetActive(false);
+			Fase1.SetActive(false);
+			Fase2.SetActive(true);
             flag.SetActive(false);
             m = false;
             camH.gameObject.SetActive(true);
             camH2.gameObject.SetActive(true);
-            camP1.gameObject.SetActive(false);
-            camP2.gameObject.SetActive(false);
+			RenderPierna.enabled=false;
+            //camP1.gameObject.SetActive(false);
+            //camP2.gameObject.SetActive(false);
             targetCamera.gameObject.SetActive(false);
-            camC.gameObject.SetActive(false);
+            //camC.gameObject.SetActive(false);
             //CameraContador2.gameObject.SetActive(true);
 
         }
@@ -299,9 +343,21 @@ public class register : MonoBehaviour {
                 }  
             }
     }
-    public void Render()
+	
+	public void Render()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+		if (Input.GetKeyDown(KeyCode.Keypad0))
+		{
+			Ind.transform.position = puntaPointer.transform.position;
+			Ind.transform.rotation = guiaModel.transform.rotation;
+			Can.transform.parent = Canula.transform;
+			CanModel.transform.parent = Can.transform;
+			Ind.transform.parent = Canula.transform;
+			Can.transform.parent = Ind.transform;
+			CanModel.transform.position = Ind.transform.position;
+			CanModel.transform.rotation = guiaModel.transform.rotation;
+		}
+		if (Input.GetKeyDown(KeyCode.B))
         {
             Debug.Log("calibra broca");
             calibrarBroca();
@@ -387,7 +443,7 @@ public class register : MonoBehaviour {
         f2.GetComponent<MeshRenderer>().enabled = true;
         f3.GetComponent<MeshRenderer>().enabled = false;
     }
-        public void registrarClavo1() //Método de registro
+	public void registrarClavo1() //Método de registro punto t1
     {
 
         e1.transform.position = puntaPointer.transform.position;
@@ -418,7 +474,7 @@ public class register : MonoBehaviour {
         f3.GetComponent<MeshRenderer>().enabled = true;
 
     }
-    public void registrarClavo2() //Método de registro
+    public void registrarClavo2() //Método de registro punto t2
     {
         e2.transform.position = puntaPointer.transform.position;
         el1.transform.position = (e1.transform.position + e2.transform.position) / 2;
@@ -458,7 +514,7 @@ public class register : MonoBehaviour {
 
     }
 
-    public void registrarClavo3() //Método de registro
+    public void registrarClavo3() //Método de registro punto t3
     {
         e3.transform.position = puntaPointer.transform.position;
         tempDis = Vector3.Distance(e3.transform.position, t3.transform.position);

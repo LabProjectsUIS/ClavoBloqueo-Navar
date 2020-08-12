@@ -118,36 +118,15 @@ public class Body : MonoBehaviour
             float qy = (float)System.Convert.ToDouble(rbList[index].Attributes["qy"].InnerText);
             float qz = (float)System.Convert.ToDouble(rbList[index].Attributes["qz"].InnerText);
             float qw = (float)System.Convert.ToDouble(rbList[index].Attributes["qw"].InnerText);
-            //Debug.Log(rbList[index].Attributes["qx"].Value);
-            //== coordinate system conversion (right to left handed) ==--
+			//Debug.Log(rbList[index].Attributes["qx"].Value);
+			//== coordinate system conversion (right to left handed) ==--
 
-            // original
-            //y = -y;
-            //qy = -qy;
-            z = -z;
-            qz = -qz;
-            qw = -qw;
-
-
-            //masomenos comentariar
-            /*y = -y;
-            qy = -qy;
-            qw = -qw;*/
-
-
-
-            //x = -x;
-            //y = -y;
-            //z = -z;
-            /*qx = -qx;
-            qy = -qy;
-            qz = -qz;*/
-
-            //== coordinate system conversion (right to left handed) ==--
-            //== bone pose ==--
+			// original
+			//z = -z;
 
             Vector3 position = new Vector3(x, y, z);
             Quaternion orientation = new Quaternion(qx, qy, qz, qw);
+
             //Vector3 positionPunta = new Vector3(qx, qy, qz);
 
             //== locate or create bone object ==--
@@ -205,25 +184,23 @@ public class Body : MonoBehaviour
                 brocaPerdida = false;
                 bone.transform.position = position;
                 bone.transform.rotation = orientation;
-				//bone.transform.eulerAngles = new Vector3(bone.transform.eulerAngles.x, bone.transform.eulerAngles.y, 0);
-
-				//bone.transform.eulerAngles = new Vector3(bone.transform.eulerAngles.x, bone.transform.eulerAngles.y - 90.0f, 0);
 			}
 
 			else
             {
                 bone.transform.position = position;
                 bone.transform.rotation = orientation;
-                //bone.transform.eulerAngles = new Vector3(bone.transform.eulerAngles.x, bone.transform.eulerAngles.y - 90.0f, 0);
-                //print(qx + " "+ qy + " "+ qz + " "+qw);
 
             }
-            //Debug.Log(bone.name + ": rotX: " + bone.transform.eulerAngles.x + "rotY:" + bone.transform.eulerAngles.y + "rotZ:" + bone.transform.eulerAngles.z);
-            //== set bone's pose ==--
+			// Debug.Log(bone.name + ": rotX: " + bone.transform.eulerAngles.x + "rotY:" + bone.transform.eulerAngles.y + "rotZ:" + bone.transform.eulerAngles.z);
+			//== set bone's pose ==--
 
+			double xr = bone.transform.rotation.x;
+			double yr = bone.transform.rotation.y;
+			double zr = bone.transform.rotation.z;
+			int mm = 0;
 
-
-        }
+		}
         if (brocaPerdida)
         {
             brocaVisible.SetActive(true);
