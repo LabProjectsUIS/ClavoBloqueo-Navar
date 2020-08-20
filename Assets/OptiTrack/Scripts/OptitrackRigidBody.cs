@@ -12,11 +12,14 @@ public class OptitrackRigidBody : MonoBehaviour
 {
     public OptitrackStreamingClient StreamingClient;
     public Int32 RigidBodyId;
-	private List<Quaternion> listAcum = new List<Quaternion>();
+	public List<Quaternion> listAcum = new List<Quaternion>();
+	private List<Quaternion> listAcumCan = new List<Quaternion>();
+
 	private int counter;
+	private int counterCan;
 
-	private int counterLimit = 5;
-
+	private int counterLimit = 30;
+	private int counterLimitCan =10;
 	void Start()
     {
         // If the user didn't explicitly associate a client, find a suitable default.
@@ -66,11 +69,6 @@ public class OptitrackRigidBody : MonoBehaviour
         OptitrackRigidBodyState rbState = StreamingClient.GetLatestRigidBodyState( RigidBodyId );
         if ( rbState != null )
         {
-			//this.transform.localPosition = rbState.Pose.Position;
-			//this.transform.localRotation = rbState.Pose.Orientation;
-			//Debug.Log("pos" + rbState.Pose.Position.x + "," + rbState.Pose.Position.y + "," + rbState.Pose.Position.z );
-			//Debug.Log("quat" + counter + ":" + rbState.Pose.Orientation.x + "," + rbState.Pose.Orientation.y + "," + rbState.Pose.Orientation.z + "," + rbState.Pose.Orientation.w);
-			
 		if (this.RigidBodyId ==2) //promediar broca
 			{
 				
@@ -98,7 +96,36 @@ public class OptitrackRigidBody : MonoBehaviour
 					listAcum.Clear();
 				}//funcion promedie y asigne
 			}
-			else
+
+			if (this.RigidBodyId == 3) //promediar canula
+			{
+
+				if (counterCan < counterLimitCan)
+				{
+					//acum = rbState.Pose.Position;
+					//Debug.Log(listAcum.Count);
+					var NewOrientation = new Quaternion(rbState.Pose.Orientation.x, rbState.Pose.Orientation.y, rbState.Pose.Orientation.z, rbState.Pose.Orientation.w);
+					listAcumCan.Add(NewOrientation);
+					//Debug.Log("quat" + counter + ":" + NewOrientation.x+ "," + NewOrientation.y + "," + NewOrientation.z + "," + NewOrientation.w);
+					counterCan++;
+				}
+				else
+				{
+					var newQuat = new Quaternion(
+						listAcumCan.Average(x => x.x),
+						listAcumCan.Average(x => x.y),
+						listAcumCan.Average(x => x.z),
+						listAcumCan.Average(x => x.w));
+					//var vectorPosGuia = new Vector3(-rbState.Pose.Position.x, rbState.Pose.Position.y, -rbState.Pose.Position.z);
+					this.transform.localPosition = rbState.Pose.Position;
+					this.transform.localRotation = newQuat;
+					//Debug.Log("pos" + rbState.Pose.Position.x + "," + rbState.Pose.Position.y + "," + rbState.Pose.Position.z);
+					//Debug.Log("quat" + counter + ":" + newQuat.x + "," + newQuat.y + "," + newQuat.z + "," + newQuat.w);
+					counterCan = 0;
+					listAcumCan.Clear();
+				}//funcion promedie y asigne
+			}
+			if (this.RigidBodyId == 1) //promediar canula
 			{
 				/*var vectorPos = new Vector3(-rbState.Pose.Position.x, rbState.Pose.Position.y, -rbState.Pose.Position.z);
 				var NewOrientation = new Quaternion(rbState.Pose.Orientation.x,rbState.Pose.Orientation.y,rbState.Pose.Orientation.z, rbState.Pose.Orientation.w);

@@ -60,7 +60,7 @@ public class register : MonoBehaviour {
 	GameObject O1;
 	GameObject O2;
 	GameObject Punto1Centro, Punto2Centro;
-	GameObject Ind, Can, Canula, CanModel, Indicador2;
+	GameObject Ind, Can, Canula, CanModel, Indicador2, Indicador1;
 	MeshRenderer RenderPierna;
 	private Vector3 offset;
     bool m;
@@ -71,6 +71,7 @@ public class register : MonoBehaviour {
 	void Awake()
 	{
 		Indicador2 = GameObject.Find("Indicador2");
+		Indicador1 = GameObject.Find("Indicador1");
 		Punto1Centro = GameObject.Find("Punto1Centro");
 		Punto2Centro = GameObject.Find("Punto2Centro");
 		Fase1 = GameObject.Find("Fase1");
@@ -360,14 +361,14 @@ public class register : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.Keypad1))
 		{
-			Ind.transform.position = Punto2Centro.transform.Find("Punto2L1").gameObject.transform.position;
-			Ind.transform.rotation = Punto2Centro.transform.Find("Punto2L1").gameObject.transform.rotation;
+			Ind.transform.position = Punto1Centro.transform.Find("Punto1L1").gameObject.transform.position;
+			Ind.transform.rotation = Punto1Centro.transform.Find("Punto1L1").gameObject.transform.rotation;
 			Can.transform.parent = Canula.transform;
 			CanModel.transform.parent = Can.transform;
 			Ind.transform.parent = Canula.transform;
 			Can.transform.parent = Ind.transform;
 			CanModel.transform.position = Ind.transform.position;
-			CanModel.transform.rotation = Indicador2.transform.rotation;
+			CanModel.transform.rotation = Indicador1.transform.rotation;
 			//CanModel.transform.rotation = Punto2Centro.transform.Find("Punto2L1").gameObject.transform.rotation;
 		}
 		if (Input.GetKeyDown(KeyCode.B))

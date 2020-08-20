@@ -566,8 +566,8 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(true);
         Indicador3.SetActive(false);
         Indicador4.SetActive(false);
-        camP1.nearClipPlane = 0.58f;
-        camH.nearClipPlane = 0.41f;
+        camP1.nearClipPlane = 1.04f;
+        camH.nearClipPlane = 0.67f;
         //TransformExtensions.SetYPos(spriteAP.transform, -0.000000000000001f);
         m = true;
     }
@@ -585,7 +585,7 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(false);
         Indicador3.SetActive(true);
         Indicador4.SetActive(false);
-        camP1.nearClipPlane = 0.45f;
+        camP1.nearClipPlane = 0.1f;
         camH.nearClipPlane = 0.393f;
         m = false;
     }
@@ -603,7 +603,7 @@ public class MainBehaviour : MonoBehaviour {
         Indicador2.SetActive(false);
         Indicador3.SetActive(false);
         Indicador4.SetActive(true);
-        camP1.nearClipPlane = 0.4599999999f;
+        camP1.nearClipPlane = 0.119f;
         camH.nearClipPlane = 0.29f;
         m = false;
     }
