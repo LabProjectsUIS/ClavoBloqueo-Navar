@@ -18,7 +18,7 @@ public class OptitrackRigidBody : MonoBehaviour
 	private int counter;
 	private int counterCan;
 
-	private int counterLimit = 30;
+	private int counterLimit = 10;
 	private int counterLimitCan =10;
 	void Start()
     {
